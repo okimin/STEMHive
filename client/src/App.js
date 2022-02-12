@@ -7,6 +7,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { Link, Routes, Route } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -49,10 +50,9 @@ const Navigation = () => (
   </Navbar>
 );
 
-function App() {
+const Home = () => {
   return (
     <div className="App">
-      <Navigation />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -69,6 +69,32 @@ function App() {
       </header>
     </div>
   );
-}
+};
+
+const About = () => {
+  return (
+    <>
+      <main>
+        <h2>Who are we?</h2>
+        <p>That feels like an existential question, don't you think?</p>
+      </main>
+      <nav>
+        <Link to="/">Home</Link>
+      </nav>
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;
