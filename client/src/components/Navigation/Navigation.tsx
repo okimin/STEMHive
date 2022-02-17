@@ -6,6 +6,7 @@ import {
   faShop,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import stemHiveLogo from "../../assets/stemHiveLogo.png";
 
 export const Navigation = () => {
   const userDropdown = <FontAwesomeIcon icon={faUser} size="lg" />;
@@ -13,7 +14,9 @@ export const Navigation = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="/">STEMHive</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img src={stemHiveLogo} height="50px" /> STEMHive
+        </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav>
