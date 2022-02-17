@@ -8,7 +8,7 @@ export const Home = () => {
       Recommended Courses for You
       <Row className="d-flex justify-content-start gap-4">
         {courseList.map((course) => (
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "18rem" }} key={course.courseNumber}>
             <Link to={`/courses/${course.courseNumber}`}>
               <Card.Img variant="top" src={course.bannerImgURL} />
               <Card.Body>
