@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { courseList } from "../../mockData";
+import React from "react";
 
 interface CardProps {
   title: string;
@@ -24,11 +23,9 @@ export const Card = ({
 }: CardProps) => {
   return (
     <div className="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {title}
-        </h5>
-      </a>
+      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        {title}
+      </h5>
       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
         {description}
       </p>
@@ -45,9 +42,9 @@ export const Card = ({
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
         </a>
