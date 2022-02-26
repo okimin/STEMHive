@@ -1,24 +1,24 @@
-import { Card, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card } from "../../components/Card/Card";
 import { courseList } from "../../mockData";
 
+// TODO: add image banner to each card (course.bannerImgURL)
 export const Home = () => {
   return (
-    <div>
+    <div className="container mx-auto">
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       Recommended Courses for You
-      <Row className="d-flex justify-content-start gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {courseList.map((course) => (
-          <Card style={{ width: "18rem" }} key={course.courseNumber}>
-            <Link to={`/courses/${course.courseNumber}`}>
-              <Card.Img variant="top" src={course.bannerImgURL} />
-              <Card.Body>
-                <Card.Title>{course.title}</Card.Title>
-                <Card.Text>{course.description}</Card.Text>
-              </Card.Body>
-            </Link>
-          </Card>
+          <Card
+            key={course.courseNumber}
+            title={course.title}
+            description={course.description}
+            hasButton
+            buttonText="Go to Course"
+            buttonTo={`/courses/${course.courseNumber}`}
+          />
         ))}
-      </Row>
+      </div>
     </div>
   );
 };
