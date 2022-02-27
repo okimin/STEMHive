@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBell, faShop } from "@fortawesome/free-solid-svg-icons";
-import stemHiveLogo from "../../assets/stemHiveLogo.png";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
+
+import stemHiveLogo from "../../assets/stemHiveLogo.png";
 import cx from "classnames";
 
 export const Navigation = () => {
+  const { pathname } = useLocation();
   const [openMenu, setOpenMenu] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const menuItems = [
@@ -127,7 +130,11 @@ export const Navigation = () => {
               <li key={item.name}>
                 <a
                   href={item.link}
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className={cx(
+                    pathname === item.link
+                      ? "block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                      : "block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  )}
                 >
                   <span className="pr-2">{item.name}</span>
                   <FontAwesomeIcon icon={item.icon} />
